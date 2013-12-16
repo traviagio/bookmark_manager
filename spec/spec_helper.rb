@@ -9,8 +9,12 @@
 
 ENV["RACK_ENV"] = 'test'
 
-require './app/server'
+require './server'
 require 'database_cleaner'
+require 'capybara/rspec'
+require 'sinatra'
+
+Capybara.app = Sinatra::Application
 
 RSpec.configure do |config|
   config.treat_symbols_as_metadata_keys_with_true_values = true

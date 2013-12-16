@@ -1,3 +1,3 @@
-require './bookmark'
+require './server'
 
 run Sinatra::Application
