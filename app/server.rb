@@ -6,6 +6,11 @@ require './lib/tag'
 require './lib/user'
 require 'rack-flash'
 require_relative 'data_mapper_setup'
+require_relative 'controllers/application'
+require_relative 'controllers/links'
+require_relative 'controllers/sessions'
+require_relative 'controllers/tags'
+require_relative 'controllers/users'
 
 
 
@@ -13,11 +18,6 @@ use Rack::Flash
 enable :sessions
 set :session_secret, 'super secret'
 set :partial_template_engine, :erb
-
-get '/' do
-  @links = Link.all
-  erb :index
-end
 
 get '/users/new' do
 	@user = User.new
