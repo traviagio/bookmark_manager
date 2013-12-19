@@ -1,5 +1,5 @@
-
 require 'sinatra'
+require 'sinatra/partial'
 require 'data_mapper'
 require './lib/link'
 require './lib/tag' 
@@ -7,9 +7,12 @@ require './lib/user'
 require 'rack-flash'
 require_relative 'data_mapper_setup'
 
+
+
 use Rack::Flash
 enable :sessions
 set :session_secret, 'super secret'
+set :partial_template_engine, :erb
 
 get '/' do
   @links = Link.all
@@ -79,6 +82,8 @@ helpers do
   end
 
 end
+
+
 
 
 
